@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: "org.postgresql.Driver"
+    url: "jdbc:postgresql://localhost:5432/test_postgres_db"
+    username: "postgres"
+    password: "pwd123"
+    platform: "postgresql"
+
+  flyway:
+    locations: "classpath:db/migration/postgresql"
+    cleanOnValidationError: true
+
+  r2dbc:
+    url: "r2dbc:postgresql://localhost:5432/test_postgres_db"
+    username: "postgres"
+    password: "pwd123"
+    properties:
+      password: "pwd123"
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          r2dbc: DEBUG
